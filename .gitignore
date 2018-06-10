@@ -1,0 +1,3 @@
+tests/docker.retry
+/tests/.vagrant/
+*/*.retry

@@ -1,0 +1,14 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |redhat|
+  redhat.vm.define "docker" do |vagrant|
+    vagrant.vm.box = "centos/7"
+    vagrant.vm.hostname = "docker"
+    vagrant.vm.network "private_network", ip: "192.168.77.210"
+    vagrant.vm.provision "ansible" do |ansible|
+      ansible.verbose = true
+      ansible.playbook = "docker.yml"
+    end
+  end
+end
